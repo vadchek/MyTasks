@@ -33,7 +33,7 @@ public class Calc {
     }
 
 
-    void calculation(){
+    void calculation() {
         double a = enterNum();
         double b = enterNum();
         String oper = enterOperation();
@@ -44,33 +44,48 @@ public class Calc {
             switch (oper) {
                 case "+":
                     c = a + b;
+                    System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "-":
                     c = a - b;
+                    System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "*":
                     c = a * b;
+                    System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "/":
-                    c = a / b;
+                    if (b != 0) {
+                        c = a / b;
+                        System.out.println(a + " " + oper + " " + b + " = " + c);
+                    } else
+                        System.out.println("Division by 0!");
                     break;
                 case "mod":
-                    c = a % b;
+                    if (b != 0) {
+                        c = a % b;
+                        System.out.println(a + " " + oper + " " + b + " = " + c);
+                    } else
+                        System.out.println("Division by 0!");
                     break;
                 case "pov":
                     c = Math.pow(a, b);
+                    System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "div":
-                    c = (int) (a / b);
+                    if (b != 0) {
+                        c = (int) (a / b);
+                        System.out.println(a + " " + oper + " " + b + " = " + c);
+                    } else
+                        System.out.println("Division by 0!");
                     break;
                 default:
                     System.out.println("Incorrect operation!");
                     oper = enterOperation();
                     bool = true;
             }
-        }while(bool);
+        } while (bool);
 
-        System.out.println(a + " " + oper + " " + b + " = " + c);
     }
 }
 
