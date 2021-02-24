@@ -10,7 +10,7 @@ public class Task8 {
         if(a > b)
             System.out.println("Error");
 
-        c = a + (int) ((b - a) * Math.random());
+        c = a + (int) ((b - a + 1) * Math.random());
 
         d = 25;
         e = 100;
