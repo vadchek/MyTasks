@@ -2,7 +2,7 @@ package org.vadim.azaza;
 
 public class Task9 {
     public static void main(String[] args) {
-        int n = (int) (28800 * Math.random());
+        int n = (int) (28801 * Math.random());
         int m = n / 3600;
 
         System.out.println(n);
