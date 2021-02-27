@@ -3,8 +3,8 @@ package org.vadim.azaza;
 public class Task24 {
     public static void main(String[] args) {
         int n = 0;
-        int mass1[] = new int[10];
-        int mass2[] = new int[10];
+        int[] mass1 = new int[10];
+        int[] mass2 = new int[10];
 
         for (int i = 0; i < 10; i++) {
             mass1[i] = 1 + (int) (9 * Math.random());
@@ -13,8 +13,9 @@ public class Task24 {
         for (int i = 0; i < 10; i++) {
             mass2[i] = 1 + (int) (9 * Math.random());
         }
+        //lol
 
-        double mass3[] = new double[10];
+        double[] mass3 = new double[10];
         for (int i = 0; i < 10; i++) {
             mass3[i] = (double) mass1[i] / mass2[i];
             if (mass3[i] % 1 == 0)

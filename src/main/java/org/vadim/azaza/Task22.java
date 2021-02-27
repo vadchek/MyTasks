@@ -2,7 +2,7 @@ package org.vadim.azaza;
 
 public class Task22 {
     public static void main(String[] args) {
-        int massiv[] = new int[15];
+        int[] massiv = new int[15];
         int x = 0;
         for (int i = 0; i < 15; i++) {
             massiv[i] = (int) (10 * Math.random());

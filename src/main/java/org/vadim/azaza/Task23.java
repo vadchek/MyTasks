@@ -3,8 +3,8 @@ package org.vadim.azaza;
 public class Task23 {
     public static void main(String[] args) {
         double j = 0, k = 0;
-        int mass1[] = new int[5];
-        int mass2[] = new int[5];
+        int[] mass1 = new int[5];
+        int[] mass2 = new int[5];
 
         for (int i = 0; i < 5; i++) {
             mass1[i] = (int) (6 * Math.random());
