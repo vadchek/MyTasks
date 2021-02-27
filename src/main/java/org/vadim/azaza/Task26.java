@@ -7,6 +7,7 @@ public class Task26 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter array elements separated by space and press \"ENTER\"");
         String str = sc.nextLine();
+        sc.close();
         String [] elements = str.split(" ");
 
         double[] array = new double[elements.length];
