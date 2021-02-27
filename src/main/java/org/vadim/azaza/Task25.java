@@ -16,6 +16,8 @@ public class Task25 {
                 System.out.println("Invalid data!");
         } while (n < 2 || n % 2 != 0);
 
+        sc.close();
+
         int[] array = new int[n];
 
         for(int i = 0; i < n; i++)
