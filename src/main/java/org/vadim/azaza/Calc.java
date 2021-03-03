@@ -37,44 +37,51 @@ public class Calc {
         double a = enterNum();
         double b = enterNum();
         String oper = enterOperation();
-        double c = 0;
+        double c;
         boolean bool = false;
 
         do {
             switch (oper) {
                 case "+":
-                    c = a + b;
+                    Addition lol = new Addition();
+                    c = lol.execute(a, b);
                     System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "-":
-                    c = a - b;
+                    Subtraction kek = new Subtraction();
+                    c = kek.execute(a, b);
                     System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "*":
-                    c = a * b;
+                    Multiplication ololo = new Multiplication();
+                    c = ololo.execute(a, b);
                     System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "/":
                     if (b != 0) {
-                        c = a / b;
+                        Division trololo = new Division();
+                        c = trololo.execute(a, b);
                         System.out.println(a + " " + oper + " " + b + " = " + c);
                     } else
                         System.out.println("Division by 0!");
                     break;
                 case "mod":
                     if (b != 0) {
-                        c = a % b;
+                        Mod azaza = new Mod();
+                        c = azaza.execute(a, b);
                         System.out.println(a + " " + oper + " " + b + " = " + c);
                     } else
                         System.out.println("Division by 0!");
                     break;
                 case "pov":
-                    c = Math.pow(a, b);
+                    Pov omg = new Pov();
+                    c = omg.execute(a, b);
                     System.out.println(a + " " + oper + " " + b + " = " + c);
                     break;
                 case "div":
                     if (b != 0) {
-                        c = (int) (a / b);
+                        Div wtf = new Div();
+                        c = wtf.execute(a, b);
                         System.out.println(a + " " + oper + " " + b + " = " + c);
                     } else
                         System.out.println("Division by 0!");
