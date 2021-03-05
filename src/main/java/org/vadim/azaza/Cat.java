@@ -13,11 +13,11 @@ public class Cat {
         strength = 146;
     }
 
-    Cat(String str, int a, int w, int s){
-        name = str;
-        age = a;
-        weight = w;
-        strength = s;
+    Cat(String name, int age, int weight, int strength){
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.strength = strength;
     }
 
     boolean fight(Cat obj){
