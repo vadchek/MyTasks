@@ -19,11 +19,11 @@ public class Task38 {
 
         if (spam.processText(text) == Label.SPAM)
             return spam.processText(text);
-        else if (negtext.processText(text) == Label.NEGATIVE_TEXT)
+        if (negtext.processText(text) == Label.NEGATIVE_TEXT)
             return negtext.processText(text);
-        else if (longer.processText(text) == Label.TOO_LONG)
+        if (longer.processText(text) == Label.TOO_LONG)
             return longer.processText(text);
-        else
+
             return spam.processText(text);
     }
 }
