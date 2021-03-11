@@ -5,6 +5,17 @@ public class EpamTask1 {
         Student student1 = new Student(123,2,"Potter","Garry",
                 "Ivanovich", "11.03.21","trololo street, 55.",
                 "8-800-555-35-35","Griffindor","lol!");
+        Student student2 = new Student(228,4,"Murphy","Rex",
+                "Ivanovich", "11.03.21","trololo street, 55.",
+                "8-800-555-35-35","Azaza","trol!");
+        Student student3 = new Student(555,1,"Travolta","John",
+                "Ivanovich", "11.03.21","trololo street, 55.",
+                "8-800-555-35-35","Pulp fiction","ololo");
         System.out.println(student1);
+
+        StudList list = new StudList(student1, student2);
+        list.printList();
+        list.addToList(student3);
+        list.printList();
     }
 }
