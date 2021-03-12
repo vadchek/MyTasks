@@ -9,10 +9,10 @@ public class Student {
     private String dateOfBirth;
     private String address;
     private String phone;
-    private String faculty;
+    private Faculty faculty;
     private String group;
 
-    public Student(int id, int year, String surname, String name, String patronymic, String dateOfBirth, String address, String phone, String faculty, String group){
+    public Student(int id, int year, String surname, String name, String patronymic, String dateOfBirth, String address, String phone, Faculty faculty, String group){
         this.id = id;
         this.year = year;
         this.surname = surname;
@@ -89,11 +89,11 @@ public class Student {
         this.phone = phone;
     }
 
-    public String getFaculty() {
+    public Faculty getFaculty() {
         return faculty;
     }
 
-    public void setFaculty(String faculty) {
+    public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
 

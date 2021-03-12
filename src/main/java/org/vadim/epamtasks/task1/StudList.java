@@ -35,4 +35,23 @@ public class StudList {
             + " (" + x.getFaculty() + ", " + x.getGroup() + ").");
         }
     }
+
+    public void printFaculty(Faculty faculty){
+        System.out.println("Faculty " + faculty + " List: ");
+        for(Student x : array){
+            if(faculty == x.getFaculty()) {
+                System.out.println(x.getId() + ". " + x.getSurname() + " " + x.getName()
+                        + " (" + x.getGroup() + ").");
+            }
+        }
+    }
+
+    public void printGroup(String group){
+        System.out.println("Group " + group + " List: ");
+        for(Student x : array){
+            if(group == x.getGroup())
+                System.out.println(x.getId() + ". " + x.getSurname() + " " + x.getName());
+        }
+    }
+
 }
