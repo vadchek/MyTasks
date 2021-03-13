@@ -2,7 +2,7 @@ package org.vadim.epamtasks.task1;
 
 public class Student {
     private int id;
-    private int year;
+    private int grade;
     private String surname;
     private String name;
     private String patronymic;
@@ -12,9 +12,9 @@ public class Student {
     private Faculty faculty;
     private String group;
 
-    public Student(int id, int year, String surname, String name, String patronymic, String dateOfBirth, String address, String phone, Faculty faculty, String group){
+    public Student(int id, int grade, String surname, String name, String patronymic, String dateOfBirth, String address, String phone, Faculty faculty, String group){
         this.id = id;
-        this.year = year;
+        this.grade = grade;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -34,11 +34,11 @@ public class Student {
     }
 
     public int getYear() {
-        return year;
+        return grade;
     }
 
     public void setYear(int year) {
-        this.year = year;
+        this.grade = year;
     }
 
     public String getSurname() {
@@ -112,7 +112,7 @@ public class Student {
                 + "Address: " + address + "\n"
                 + "Phone: " + phone + "\n"
                 + "Faculty: " + faculty + "\n"
-                + "Year: " + year + "\n"
+                + "Grade: " + grade + "\n"
                 + "Group: " + group + "\n"
         );
     }
