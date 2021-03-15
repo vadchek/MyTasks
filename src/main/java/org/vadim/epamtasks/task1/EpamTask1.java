@@ -1,17 +1,19 @@
 package org.vadim.epamtasks.task1;
 
+import java.util.UUID;
+
 public class EpamTask1 {
     public static void main(String[] args){
-        Student student1 = new Student(123,2,"Potter","Garry",
+        Student student1 = new Student(UUID.randomUUID(),2,"Potter","Garry",
                 "Ivanovich", "11.03.2021","trololo street, 55.",
                 "8-800-555-35-35",Faculty.GRYFFINDOR,"lol!");
-        Student student2 = new Student(228,4,"Murphy","Rex",
+        Student student2 = new Student(UUID.randomUUID(),4,"Murphy","Rex",
                 "Ivanovich", "11.03.1999","trololo street, 55.",
                 "8-800-555-35-35",Faculty.SLYTHERIN,"trol!");
-        Student student3 = new Student(555,1,"Travolta","John",
+        Student student3 = new Student(UUID.randomUUID(),1,"Travolta","John",
                 "Ivanovich", "11.03.2021","trololo street, 55.",
                 "8-800-555-35-35",Faculty.HUFFLEPUFF,"ololo");
-        Student student4 = new Student(555,1,"Travolta","John",
+        Student student4 = new Student(UUID.randomUUID(),1,"Travolta","John",
                 "Ivanovich", "11.03.1960","trololo street, 55.",
                 "8-800-555-35-35",Faculty.RAVENCLAW,"ololo");
         System.out.println(student1);

@@ -1,18 +1,20 @@
 package org.vadim.epamtasks.task1;
 
+import java.util.UUID;
+
 public class Student {
-    private int id;
+    final private UUID id;
     private int grade;
     private String surname;
-    private String name;
-    private String patronymic;
-    private String dateOfBirth;
+    final private String name;
+    final private String patronymic;
+    final private String dateOfBirth;
     private String address;
     private String phone;
     private Faculty faculty;
     private String group;
 
-    public Student(int id, int grade, String surname, String name, String patronymic, String dateOfBirth, String address, String phone, Faculty faculty, String group){
+    public Student(UUID id, int grade, String surname, String name, String patronymic, String dateOfBirth, String address, String phone, Faculty faculty, String group){
         this.id = id;
         this.grade = grade;
         this.surname = surname;
@@ -25,12 +27,8 @@ public class Student {
         this.group = group;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getYear() {
@@ -53,24 +51,12 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPatronymic() {
         return patronymic;
     }
 
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 
     public String getAddress() {
