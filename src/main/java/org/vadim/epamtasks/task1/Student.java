@@ -27,6 +27,22 @@ public class Student {
         this.group = group;
     }
 
+    private String createGroup(Faculty faculty, int yearOfEntering){
+        String group = "";
+        switch (faculty){
+            case RAVENCLAW:
+                group = "R";
+            case SLYTHERIN:
+                group = "S";
+            case GRYFFINDOR:
+                group = "G";
+            case HUFFLEPUFF:
+                group = "H";
+        }
+        group = group + yearOfEntering;
+        return group;
+    }
+
     public UUID getId() {
         return id;
     }
