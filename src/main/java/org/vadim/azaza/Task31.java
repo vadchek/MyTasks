@@ -13,15 +13,20 @@ public class Task31 {
             return;
         }
         try(BufferedReader buf = new BufferedReader(file)) {
-            String str;
-            String substring = "war and peace";
-            int counter = 0;
-            while((str = buf.readLine()) != null){
-                str = str.toLowerCase();
-                if (str.contains(substring))
-                    counter++;
+            String word = "";
+            char symbol;
+
+            for(int iterator = 0; iterator < 200; iterator++) {
+                symbol = (char) (buf.read());
+                if (Character.isLetter(symbol) || symbol == '\'')
+                    word += symbol;
+                else {
+                    word = word.toLowerCase();
+                    if(word.length() > 0)
+                        System.out.println(word + " " + word.length());
+                    word = "";
+                }
             }
-            System.out.println(counter);
         }catch(IOException e){
             System.out.println(e.getMessage());
         }
