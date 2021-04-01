@@ -1,4 +1,4 @@
-package org.vadim.azaza;
+package org.vadim.task42;
 
 import java.util.*;
 
@@ -59,5 +59,9 @@ public class Student {
             sumOfGrades += gradesList.get(i).getGrade();
         }
         return sumOfGrades/gradesList.size();
+    }
+
+    public String toString(){
+        return surname + " " + name + "(" + group + ")";
     }
 }
