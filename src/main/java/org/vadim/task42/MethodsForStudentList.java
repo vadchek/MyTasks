@@ -18,14 +18,21 @@ public class MethodsForStudentList {
                 System.out.println("   " + sortList.get(num).getCourse() + " course:");
                 courseCount = sortList.get(num).getCourse();
             }
-            System.out.println((num + 1) + ". " + sortList.get(num));
+            System.out.println((num + 1) + ". " + sortList.get(num) + " (" + sortList.get(num).getGroup() + ")");
         }
     }
 
-    public static void groupAverageGrade(ArrayList<Student> studList){
-        Comparator<Student> compByGroup = (student1, student2)->student1.getGroup().compareTo(student2.getGroup());
+    private static ArrayList<Student> sortByGroup(ArrayList<Student> studList) {
+        //Comparator<Student> compByGroup = Comparator.comparing(Student::getGroup);
+        Comparator<Student> compByGroup = (student1, student2) -> student1.getGroup().compareTo(student2.getGroup());
         ArrayList<Student> sortByGroupList = new ArrayList<>(studList);
         sortByGroupList.sort(compByGroup);
+        return sortByGroupList;
+    }
+
+    public static void groupAverageGrade(ArrayList<Student> studList){
+        ArrayList<Student> sortByGroupList = new ArrayList<>();
+        sortByGroupList = sortByGroup(studList);
 
         while(!sortByGroupList.isEmpty()) {
             int numberOfStudents = 0;
@@ -36,7 +43,7 @@ public class MethodsForStudentList {
             double gradePhilosophy = 0;
             String group = sortByGroupList.get(0).getGroup();
 
-            while (!sortByGroupList.isEmpty() && group == sortByGroupList.get(0).getGroup()){
+            while (!sortByGroupList.isEmpty() && group.equals(sortByGroupList.get(0).getGroup())){
                 numberOfStudents++;
                 gradeMathematics += sortByGroupList.get(0).getGrades().get(Subject.MATHEMATICS).getGrade();
                 gradePhysics += sortByGroupList.get(0).getGrades().get(Subject.PHYSICS).getGrade();
@@ -52,5 +59,36 @@ public class MethodsForStudentList {
                     + Subject.ENGLISH + " " + gradeEnglish / numberOfStudents + "\n"
                     + Subject.PHILOSOPHY + " " + gradePhilosophy / numberOfStudents + "\n");
         }
+    }
+
+    public static void findBestStudentsInGroups(ArrayList<Student> studList){
+        ArrayList<Student> sortByGroupList = new ArrayList<>();
+        sortByGroupList = sortByGroup(studList);
+        while(!sortByGroupList.isEmpty()) {
+            Student student = sortByGroupList.get(0);
+            String group = sortByGroupList.get(0).getGroup();
+            double studAverage = 0;
+            while (!sortByGroupList.isEmpty() && group.equals(sortByGroupList.get(0).getGroup())) {
+                if (studAverage < sortByGroupList.get(0).average()) {
+                    student = sortByGroupList.get(0);
+                    studAverage = sortByGroupList.get(0).average();
+                }
+                sortByGroupList.remove(0);
+            }
+            System.out.println("In group " + group + " best student is " + student + " with average " + studAverage);
+        }
+    }
+
+    public static void findOldestAndYoungestStudents(ArrayList<Student> studList){
+        Student old = studList.get(0);
+        Student young = studList.get(0);
+        for(Student student : studList){
+            if(old.getYearOfBirth() > student.getYearOfBirth())
+                old = student;
+            if(young.getYearOfBirth() < student.getYearOfBirth())
+                young = student;
+        }
+        System.out.println("Oldest student is " + old);
+        System.out.println("Youngest student is " + young);
     }
 }

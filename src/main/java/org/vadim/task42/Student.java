@@ -3,13 +3,13 @@ package org.vadim.task42;
 import java.util.*;
 
 public class Student {
-    private String surname;
-    private String name;
-    private String patronymic;
-    private int yearOfBirth;
-    private int course;
-    private String group;
-    private HashMap<Subject, Grade> grades;
+    private final String surname;
+    private final String name;
+    private final String patronymic;
+    private final int yearOfBirth;
+    private final int course;
+    private final String group;
+    private final HashMap<Subject, Grade> grades;
 
     public Student(String surname, String name, String patronymic, int yearOfBirth, int course, String group, HashMap<Subject, Grade> grades) {
         this.surname = surname;
@@ -55,13 +55,13 @@ public class Student {
         if(gradesList.size() == 0){
             return 0;
         }
-        for(int i = 0; i < gradesList.size(); i++){
-            sumOfGrades += gradesList.get(i).getGrade();
+        for (Grade grade : gradesList) {
+            sumOfGrades += grade.getGrade();
         }
         return sumOfGrades/gradesList.size();
     }
 
     public String toString(){
-        return surname + " " + name + "(" + group + ")";
+        return surname + " " + name ;
     }
 }
