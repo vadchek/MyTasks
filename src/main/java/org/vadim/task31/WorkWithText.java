@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.*;
 
 public class WorkWithText {
     private  int counterOfWords; // счетчик слов в тексте
     private HashMap<Integer, HashMap<String, Integer>> textMap = new HashMap<>();  // ключ внутренней мапы - слово, значение - частота встречаемости в тексте
                                                                                     // ключ внешней мапы - количество букв в слове
     private  int counterOfLetters; // счетчик букв в тексте
-    private HashMap<Character, Integer> letterMap = new HashMap<Character, Integer>();
+    private HashMap<Character, Integer> letterMap = new HashMap<Character, Integer>();// ключ - буква, значение - частота встречаемости в тексте
 
 
     WorkWithText(String fileName){
@@ -41,7 +41,6 @@ public class WorkWithText {
                     counterOfLetters++;
                 }
             }
-            System.out.println(letterMap);
         }catch(IOException e){
             System.out.println(e.getMessage());
         }
@@ -75,8 +74,6 @@ public class WorkWithText {
                     word = "";
                 }
             }
-            System.out.println(textMap.keySet());
-            System.out.println(textMap.get(1));
         }catch(IOException e){
             System.out.println(e.getMessage());
         }
@@ -85,7 +82,7 @@ public class WorkWithText {
 
     private void putLetterIntoMap(Character symbol){
         int counter;
-        //word = word.toLowerCase();
+        symbol = Character.toLowerCase(symbol);
        counter = letterMap.getOrDefault(symbol,0);
         letterMap.put(symbol, ++counter);
     }
@@ -106,11 +103,47 @@ public class WorkWithText {
         }
     }
 
-    public int getCounterOfLetters() {
-        return counterOfLetters;
-    }
-
     public int getCounterOfWords() {
         return counterOfWords;
+    }
+
+    public void printNLettersWords(int n){
+        System.out.println("A group of " + n + " letter words: " + textMap.get(n).keySet());
+    }
+
+    public void topTenWords(){
+        int number;
+        String word = "";
+        String[] words = new String[10];
+        Integer[] numbers = new Integer[10];
+        HashMap<Integer,HashMap<String,Integer>> txtMap = new HashMap<>(textMap);
+
+        for(int i = 0; i < 10; i++) {
+            number = 0;
+            Set<Map.Entry<Integer, HashMap<String, Integer>>> outer = txtMap.entrySet();
+            for (Map.Entry<Integer, HashMap<String, Integer>> iterator1 : outer) {
+                Set<Map.Entry<String, Integer>> inner = iterator1.getValue().entrySet();
+                for (Map.Entry<String, Integer> iterator2 : inner) {
+                    if (iterator2.getValue() > number) {
+                        number = iterator2.getValue();
+                        word = iterator2.getKey();
+                    }
+                }
+            }
+            words[i] = word;
+            numbers[i] = number;
+            System.out.println((i + 1) + ". " + words[i] + "(" + numbers[i] + ")");
+            txtMap.get(word.length()).remove(word);
+        }
+
+    }
+
+    public void printLettersPercent(){
+        Set<Map.Entry<Character, Integer>> letterSet = letterMap.entrySet();
+        for(Map.Entry<Character, Integer> output : letterSet){
+            System.out.print(output.getKey() + " " );
+            System.out.printf("%.2f",((double)output.getValue()/counterOfLetters) * 100);
+            System.out.println("%");
+        }
     }
 }
