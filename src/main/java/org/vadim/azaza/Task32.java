@@ -7,12 +7,11 @@ public class Task32 {
     public static void main(String[] args){
         //original  C:/Users/vadchek/Desktop/lol.txt
         //copy  C:/Users/vadchek/Desktop/kek.txt
-        int byteCounter = 0;
+        long byteCounter = 0;
         FileInputStream originalFile = null;
         FileOutputStream copyFile = null;
 
         try {
-            int i;
             boolean fileIsNotFound;
 
             do {
@@ -35,17 +34,12 @@ public class Task32 {
                 }
             }while(fileIsNotFound);
 
-            do{
-                i = originalFile.read();
-                if(i != -1) {
-                    copyFile.write(i);
-                    byteCounter++;
-                }
-            }while(i != -1);
+            byteCounter = originalFile.transferTo(copyFile);
 
         }catch(IOException exception){
             System.out.println("Input-Output error.");
         }
+
 
         try {
             originalFile.close();

@@ -8,7 +8,7 @@ public class Task31 {
 
         System.out.println("The number of words in the text: " + textProcessor.getCounterOfWords());
         System.out.println();
-        textProcessor.printNLettersWords(5);
+        textProcessor.printNLettersWords(7);
         System.out.println();
         System.out.println("Top ten words: " );
         textProcessor.topTenWords();

@@ -1,6 +1,5 @@
 package org.vadim.task31;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,25 +23,25 @@ public class WorkWithText {
 
         try {                                           // открыть файл
             file = new FileReader(fileName);
-        }catch(FileNotFoundException e){
+        }catch(FileNotFoundException fileNotFoundException){
             System.out.println("File is not found.");
             return;
         }
 
-        try(BufferedReader buf = new BufferedReader(file)) {
+        try(file) {
             char symbol;
             int reader = 0;
 
             while(reader != -1) {
-                reader = buf.read();
+                reader = file.read();
                 symbol = (char) reader;
                 if(Character.isLetter(symbol)) {
                     putLetterIntoMap(symbol);
                     counterOfLetters++;
                 }
             }
-        }catch(IOException e){
-            System.out.println(e.getMessage());
+        }catch(IOException ioException){
+            System.out.println(ioException.getMessage());
         }
     }
 
@@ -51,18 +50,18 @@ public class WorkWithText {
 
         try {                                           // открыть файл
             file = new FileReader(fileName);
-        }catch(FileNotFoundException e){
+        }catch(FileNotFoundException fileNotFoundException){
             System.out.println("File is not found.");
             return;
         }
 
-        try(BufferedReader buf = new BufferedReader(file)) {  // посимвольное считывание из файла
+        try(file) {  // посимвольное считывание из файла
             String word = "";
             char symbol;
             int reader = 0;
 
             while(reader != -1) {
-                reader = buf.read();
+                reader = file.read();
                 symbol = (char) reader;
                 if (Character.isLetter(symbol) || symbol == '\'' || symbol == '-')  // составление слов из символов
                     word += symbol;
@@ -74,8 +73,8 @@ public class WorkWithText {
                     word = "";
                 }
             }
-        }catch(IOException e){
-            System.out.println(e.getMessage());
+        }catch(IOException ioException){
+            System.out.println(ioException.getMessage());
         }
 
     }
