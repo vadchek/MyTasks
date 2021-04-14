@@ -10,11 +10,11 @@ public class SplitConcatFile {
         File output1 = new File(readString());
         System.out.println("Enter name of output2 file(path + filename): ");
         File output2 = new File(readString());
-        System.out.println("Enter size of output1: ");
         long sizeOfFirstPart = 0;
-        boolean isNumber = true;
+        boolean isNumber;
             do {
             try {
+                System.out.println("Enter size of output1: ");
                 sizeOfFirstPart = Long.parseLong(readString());
                 isNumber = true;
             } catch (NumberFormatException numberFormatException) {
@@ -57,13 +57,8 @@ public class SplitConcatFile {
             FileInputStream readerSource2 = new FileInputStream(source2);
             FileOutputStream writerOutput = new FileOutputStream(output, true)){
 
-            int bt;
-            while((bt = readerSource1.read()) != -1){
-                writerOutput.write(bt);
-            }
-            while((bt = readerSource2.read()) != -1){
-                writerOutput.write(bt);
-            }
+            readerSource1.transferTo(writerOutput);
+            readerSource2.transferTo(writerOutput);
 
         }catch(FileNotFoundException fileNotFoundException){
             System.out.println("File is not found");
@@ -74,7 +69,7 @@ public class SplitConcatFile {
 
      String readString() {
          InputStreamReader readFromKeyboard = new InputStreamReader(System.in);
-        char c = ' ';
+        char c;
         String string = "";
         try {
             while ((c = (char) readFromKeyboard.read()) != '\n') {
